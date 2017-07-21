@@ -139,31 +139,37 @@ public class TelematicsService {
             averageLastOilChangeTag.html(df.format(averageLastOilChange));
             averageEngineSizeTag.html(df.format(averageEngineSize));
 
+            Element addOnToMe = dashboardHTML.getElementById("addontome");
+            addOnToMe = resetTable(addOnToMe, dashboardFile.getName());
             for (VehicleInfo vi : allVehicles){
-                Element addOnToMe = dashboardHTML.getElementById("addontome");
 
                 Element newTR = new Element(Tag.valueOf("tr"), dashboardFile.getName());
                 Element vinTD = new Element(Tag.valueOf("td"), dashboardFile.getName());
+                vinTD.attr("align", "center");
                 String vehicleVIN = df.format(vi.getVehicleIdentificationNumber());
                 vinTD.html(vehicleVIN);
                 newTR.appendChild(vinTD);
 
                 Element odometerTD = new Element(Tag.valueOf("td"), dashboardFile.getName());
+                odometerTD.attr("align", "center");
                 String vehicleOdometer = df.format(vi.getOdometer());
                 odometerTD.html(vehicleOdometer);
                 newTR.appendChild(odometerTD);
 
                 Element consumptionTD = new Element(Tag.valueOf("td"), dashboardFile.getName());
+                consumptionTD.attr("align", "center");
                 String vehicleGasConsumption = df.format(vi.getGasConsumption());
                 consumptionTD.html(vehicleGasConsumption);
                 newTR.appendChild(consumptionTD);
 
                 Element lastOilChangeTD = new Element(Tag.valueOf("td"), dashboardFile.getName());
+                lastOilChangeTD.attr("align", "center");
                 String vehicleLastOilChange = df.format(vi.getMilesSinceLastOilChange());
                 lastOilChangeTD.html(vehicleLastOilChange);
                 newTR.appendChild(lastOilChangeTD);
 
                 Element engineSizeTD = new Element(Tag.valueOf("td"), dashboardFile.getName());
+                engineSizeTD.attr("align", "center");
                 String vehicleEngineSize = df.format(vi.getEngineSize());
                 engineSizeTD.html(vehicleEngineSize);
                 newTR.appendChild(engineSizeTD);
@@ -175,5 +181,36 @@ public class TelematicsService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static Element resetTable (Element addontome, String filename){
+        addontome.html("");
+
+        Element newTR = new Element(Tag.valueOf("tr"), filename);
+        Element vinTD = new Element(Tag.valueOf("th"), filename);
+        vinTD.attr("align", "center");
+        vinTD.html("VIN");
+        newTR.appendChild(vinTD);
+
+        Element odometerTD = new Element(Tag.valueOf("th"), filename);
+        odometerTD.attr("align", "center");
+        odometerTD.html("Odometer (miles)");
+        newTR.appendChild(odometerTD);
+
+        Element consumptionTD = new Element(Tag.valueOf("th"), filename);
+        consumptionTD.attr("align", "center");
+        consumptionTD.html("Consumption (gallons)");
+        newTR.appendChild(consumptionTD);
+
+        Element lastOilChangeTD = new Element(Tag.valueOf("th"), filename);
+        lastOilChangeTD.attr("align", "center");
+        lastOilChangeTD.html("Last Oil Change");
+        newTR.appendChild(lastOilChangeTD);
+
+        Element engineSizeTD = new Element(Tag.valueOf("th"), filename);
+        engineSizeTD.attr("align", "center");
+        engineSizeTD.html("Engine Size (liters)");
+        newTR.appendChild(engineSizeTD);
+        return addontome;
     }
 }
