@@ -26,11 +26,5 @@ public class Main {
         newVehicle.setEngineSize(engineSize);
 
         TelematicsService.report(newVehicle);
-
-        String[] fileContents = TelematicsService.getFileContents("dashboard.html");
-
-        for (String line : fileContents) {
-            System.out.println(line);
-        }
     }
 }
