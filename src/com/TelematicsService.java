@@ -187,30 +187,32 @@ public class TelematicsService {
         addontome.html("");
 
         Element newTR = new Element(Tag.valueOf("tr"), filename);
-        Element vinTD = new Element(Tag.valueOf("th"), filename);
-        vinTD.attr("align", "center");
-        vinTD.html("VIN");
-        newTR.appendChild(vinTD);
+        Element vinTH = new Element(Tag.valueOf("th"), filename);
+        vinTH.attr("align", "center");
+        vinTH.html("VIN");
+        newTR.appendChild(vinTH);
 
-        Element odometerTD = new Element(Tag.valueOf("th"), filename);
-        odometerTD.attr("align", "center");
-        odometerTD.html("Odometer (miles)");
-        newTR.appendChild(odometerTD);
+        Element odometerTH = new Element(Tag.valueOf("th"), filename);
+        odometerTH.attr("align", "center");
+        odometerTH.html("Odometer (miles)");
+        newTR.appendChild(odometerTH);
 
-        Element consumptionTD = new Element(Tag.valueOf("th"), filename);
-        consumptionTD.attr("align", "center");
-        consumptionTD.html("Consumption (gallons)");
-        newTR.appendChild(consumptionTD);
+        Element consumptionTH = new Element(Tag.valueOf("th"), filename);
+        consumptionTH.attr("align", "center");
+        consumptionTH.html("Consumption (gallons)");
+        newTR.appendChild(consumptionTH);
 
-        Element lastOilChangeTD = new Element(Tag.valueOf("th"), filename);
-        lastOilChangeTD.attr("align", "center");
-        lastOilChangeTD.html("Last Oil Change");
-        newTR.appendChild(lastOilChangeTD);
+        Element lastOilChangeTH = new Element(Tag.valueOf("th"), filename);
+        lastOilChangeTH.attr("align", "center");
+        lastOilChangeTH.html("Last Oil Change");
+        newTR.appendChild(lastOilChangeTH);
 
-        Element engineSizeTD = new Element(Tag.valueOf("th"), filename);
-        engineSizeTD.attr("align", "center");
-        engineSizeTD.html("Engine Size (liters)");
-        newTR.appendChild(engineSizeTD);
+        Element engineSizeTH = new Element(Tag.valueOf("th"), filename);
+        engineSizeTH.attr("align", "center");
+        engineSizeTH.html("Engine Size (liters)");
+        newTR.appendChild(engineSizeTH);
+        addontome.appendChild(newTR);
+
         return addontome;
     }
 }
