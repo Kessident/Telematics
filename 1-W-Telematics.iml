@@ -9,6 +9,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="com.fasterxml.jackson.core:jackson-databind:2.8.9" level="project" />
     <orderEntry type="library" name="io.shick.jsoup:jsoup-configuration-core:1.0.3" level="project" />
-    <orderEntry type="library" name="commons-io-2.5" level="project" />
+    <orderEntry type="library" name="org.apache.directory.studio:org.apache.commons.io:2.4" level="project" />
   </component>
 </module>
